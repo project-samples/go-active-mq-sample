@@ -1,0 +1,25 @@
+server:
+  name: go-subscription
+  port: 8080
+
+log:
+  level: info
+  map:
+    time: "@timestamp"
+    msg: message
+
+mongo:
+  uri: mongodb+srv://dbUser:Demoaccount1@projectdemo.g0lah.mongodb.net
+  database: masterdata
+
+retry:
+  1: 5
+  2: 7
+  3: 9
+
+amq:
+  addr: localhost:61613
+  username: admin
+  password: admin
+  destination_name: test
+  subscription_name: test
