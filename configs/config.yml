@@ -1,5 +1,5 @@
 server:
-  name: go-subscription
+  name: go-active-mq-sample
   port: 8080
 
 log:
