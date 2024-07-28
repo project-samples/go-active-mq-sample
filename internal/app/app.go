@@ -8,12 +8,13 @@ import (
 
 	"github.com/core-go/activemq"
 	"github.com/core-go/health"
+	ah "github.com/core-go/health/activemq"
 	hm "github.com/core-go/health/mongo"
 	w "github.com/core-go/mongo/writer"
 	"github.com/core-go/mq"
 	v "github.com/core-go/mq/validator"
 	"github.com/core-go/mq/zap"
-	"github.com/go-stomp/stomp"
+	"github.com/go-stomp/stomp/v3"
 )
 
 type ApplicationContext struct {
@@ -54,7 +55,7 @@ func NewApp(ctx context.Context, cfg Config) (*ApplicationContext, error) {
 	writer := w.NewWriter[*User](db, "user")
 	handler := mq.NewRetryHandlerByConfig[User](cfg.Retry, writer.Write, validator.Validate, errorHandler.RejectWithMap, nil, sender.SendWithFrame, logError, logInfo)
 	mongoChecker := hm.NewHealthChecker(client)
-	subscriberChecker := activemq.NewHealthChecker(cfg.Amq.Addr, "amq_subscriber")
+	subscriberChecker := ah.NewHealthChecker(cfg.Amq.Addr, "amq_subscriber")
 	healthHandler := health.NewHandler(mongoChecker, subscriberChecker)
 
 	return &ApplicationContext{
