@@ -8,7 +8,7 @@ import (
 
 	"github.com/core-go/activemq"
 	"github.com/core-go/health"
-	ah "github.com/core-go/health/activemq"
+	ah "github.com/core-go/health/activemq/v3"
 	hm "github.com/core-go/health/mongo"
 	w "github.com/core-go/mongo/writer"
 	"github.com/core-go/mq"

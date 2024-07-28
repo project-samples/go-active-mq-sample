@@ -11,4 +11,4 @@ The sample about active-mq, which use these libraries:
 
 ### Similar libraries for nodejs
 We also provide these libraries to support nodejs:
-- [activemq](https://www.npmjs.com/package/activemq), combine with [mq-one](https://www.npmjs.com/package/mq-one) for nodejs. Example is at [activemq-sample](https://github.com/typescript-tutorial/activemq-sample)
+- [activemq](https://www.npmjs.com/package/activemq), to wrap and simplify [amqplib](https://www.npmjs.com/package/amqplib), combine with [mq-one](https://www.npmjs.com/package/mq-one) for nodejs. Example is at [activemq-sample](https://github.com/typescript-tutorial/activemq-sample).
